@@ -45,6 +45,10 @@ public class AlgFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle SavedInstanceState) {
         super.onViewCreated(view, SavedInstanceState);
+
+        cat = getArguments().getString("Category");
+
+
         makeRequest(cat);
 
         rvAlgs = view.findViewById(R.id.rv_algs);
