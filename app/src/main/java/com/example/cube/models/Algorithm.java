@@ -16,12 +16,12 @@ public class Algorithm {
     public Algorithm(){ }
 
     public Algorithm(JSONObject jsonObject) throws JSONException {
-        AlgName =jsonObject.getString("Alg name");
-        Type = jsonObject.getString("Classification");
-        Moves = jsonObject.getString("Moves");
+        AlgName =jsonObject.getString("alg_name");
+        Type = jsonObject.getString("classification");
+        Moves = jsonObject.getString("moves");
     }
 
-    public List<Algorithm> fromJSONArray(JSONArray jsonArray) {
+    public static List<Algorithm> fromJSONArray(JSONArray jsonArray) {
         List<Algorithm> algorithms = new ArrayList<>();
         for(int i = 0; i < jsonArray.length(); i++) {
             try {
@@ -31,5 +31,29 @@ public class Algorithm {
             }
         }
         return algorithms;
+    }
+
+    public String getAlgName() {
+        return AlgName;
+    }
+
+    public void setAlgName(String algName) {
+        AlgName = algName;
+    }
+
+    public String getType() {
+        return Type;
+    }
+
+    public void setType(String type) {
+        Type = type;
+    }
+
+    public String getMoves() {
+        return Moves;
+    }
+
+    public void setMoves(String moves) {
+        Moves = moves;
     }
 }

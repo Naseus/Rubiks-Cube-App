@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
-    private String API_BASE_URL = "http://192.168.1.222:8888";//getString(R.string.api_site);
     private static String TAG = "MainActivity";
 
     @Override
@@ -51,26 +50,6 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-
-
-        AsyncHttpClient client = new AsyncHttpClient();
-
-        client.get(API_BASE_URL + "/cube/OLL", new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int i, Headers headers, JSON json) {
-                JSONObject jsonObject = json.jsonObject;
-                try {
-                    JSONArray jsonArray = jsonObject.getJSONArray("Algorithms");
-                } catch (JSONException e) {
-                    Log.e(TAG, "Json Exception", e);
-                }
-            }
-
-            @Override
-            public void onFailure(int i, Headers headers, String s, Throwable throwable) {
-
-            }
-        });
     }
 
     @Override
